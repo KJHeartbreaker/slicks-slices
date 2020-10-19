@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Pagination from '../components/Pagination'
+import Pagination from '../components/pagination'
 import SEO from '../components/SEO'
 
 const SlicemasterGrid = styled.div`
