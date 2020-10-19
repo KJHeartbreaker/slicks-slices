@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Pagination from '../components/pagination'
+import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 
 const SlicemasterGrid = styled.div`
@@ -16,11 +16,9 @@ const SlicemasterStyles = styled.div`
 	a {
 		text-decoration: none;
 	}
-
 	.gatsby-image-wrapper {
 		height: 400px;
 	}
-
 	h2 {
 		transform: rotate(-2deg);
 		text-align: center;
@@ -29,7 +27,6 @@ const SlicemasterStyles = styled.div`
 		position: relative;
 		z-index: 2;
 	}
-
 	.description {
 		background: var(--yellow);
 		padding: 1rem;
@@ -42,7 +39,7 @@ const SlicemasterStyles = styled.div`
 	}
 `
 
-export default function SliceMastersPage({ data, pageContext }) {
+export default function SlicemastersPage({ data, pageContext }) {
 	const slicemasters = data.slicemasters.nodes
 	return (
 		<>
@@ -50,7 +47,7 @@ export default function SliceMastersPage({ data, pageContext }) {
 			<Pagination
 				pageSize={parseInt(process.env.GATSBY_PAGE_SIZE)}
 				totalCount={data.slicemasters.totalCount}
-				currentPage={pageContext.currentPage}
+				currentPage={pageContext.currentPage || 1}
 				skip={pageContext.skip}
 				base="/slicemasters"
 			/>
@@ -94,7 +91,7 @@ export const query = graphql`
 	}
 `
 
-SliceMastersPage.propTypes = {
+SlicemastersPage.propTypes = {
 	data: PropTypes.object,
 	pageContext: PropTypes.object,
 }
